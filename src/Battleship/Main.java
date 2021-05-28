@@ -19,7 +19,10 @@ public class Main {
             load = scanner.next().equals("Y");
         }
 
-        if (!load) {
+        if (load) {
+            player1Table.setGameTable(saveAndLoadEditor.loadGameTable(1));
+            player2Table.setGameTable(saveAndLoadEditor.loadGameTable(2));
+        } else {
             System.out.println("Player 1, place your ships on the game field");
             player1Table.setShipsCoordinates();
 
@@ -28,10 +31,8 @@ public class Main {
 
             System.out.println("Player 2, place your ships to the game field");
             player2Table.setShipsCoordinates();
-        } else {
-            player1Table.setGameTable(saveAndLoadEditor.loadGameTable(1));
-            player2Table.setGameTable(saveAndLoadEditor.loadGameTable(2));
         }
+
         while (true) {
 
             System.out.println("Press Enter and pass the move to another player");
