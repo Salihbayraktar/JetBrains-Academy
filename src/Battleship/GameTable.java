@@ -3,11 +3,17 @@ package Battleship;
 import java.util.Scanner;
 
 public class GameTable {
-    char[][] gameTable = new char[12][12];  // Extend the array to make controls easily
-    char[][] gameTableWithFog = new char[12][12];
+    private char[][] gameTable = new char[12][12];  // Extend the array to make controls easily
+    private char[][] gameTableWithFog = new char[12][12];
+
+
 
     public GameTable() {
         fillTables();
+    }
+
+    public void setGameTable(char[][] gameTable) {
+        this.gameTable = gameTable;
     }
 
     public char[][] getGameTable() {
