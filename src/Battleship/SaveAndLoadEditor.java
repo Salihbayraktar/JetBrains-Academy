@@ -5,7 +5,7 @@ import java.io.*;
 public class SaveAndLoadEditor {
 
     public boolean isSaved() {
-        return new File("src/Battleship/saves/player1GameTable.txt").isFile();
+        return (new File("src/Battleship/saves/player1GameTable.txt").isFile() && new File("src/Battleship/saves/player2GameTable.txt").isFile());
     }
 
     public void saveGameTable(char[][] gameTable, int playerId) throws IOException {
@@ -13,12 +13,13 @@ public class SaveAndLoadEditor {
         byte[] bytes = new byte[gameTable.length];
         String fileName = String.format("src/Battleship/saves/player%dGameTable.txt", playerId);
         FileOutputStream stream = new FileOutputStream(fileName);
-        for (int i = 0; i < gameTable.length; i++) {
+        for (char[] chars : gameTable) {
             for (int j = 0; j < gameTable[0].length; j++) {
-                bytes[j] = (byte) gameTable[i][j];
+                bytes[j] = (byte) chars[j];
             }
             stream.write(bytes);
         }
+        stream.close();
     }
 
     public char[][] loadGameTable(int playerId) throws IOException {
@@ -35,10 +36,11 @@ public class SaveAndLoadEditor {
             }
             r++;
         }
+        inputStream.close();
         return loadedTable;
     }
 
-    public void deleteSaves() throws FileNotFoundException {
+    public void deleteSaves() {
 
         File player1Save = new File("src//Battleship/saves/player1GameTable.txt");
         File player2Save = new File("src//Battleship/saves/player2GameTable.txt");
