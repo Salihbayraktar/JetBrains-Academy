@@ -25,7 +25,7 @@ public class SaveAndLoadEditor {
     public char[][] loadGameTable(int playerId) throws IOException {
 
         char[][] loadedTable = new char[12][12];
-        String fileName = String.format("src//Battleship/saves/player%dGameTable.txt", playerId);
+        String fileName = String.format("src/Battleship/saves/player%dGameTable.txt", playerId);
         FileInputStream inputStream = new FileInputStream(fileName);
         int condition = inputStream.read();
         int r = 0;
@@ -42,8 +42,8 @@ public class SaveAndLoadEditor {
 
     public void deleteSaves() {
 
-        File player1Save = new File("src//Battleship/saves/player1GameTable.txt");
-        File player2Save = new File("src//Battleship/saves/player2GameTable.txt");
+        File player1Save = new File("src/Battleship/saves/player1GameTable.txt");
+        File player2Save = new File("src/Battleship/saves/player2GameTable.txt");
         if (player1Save.delete()) System.out.println("player1GameTable.txt deleted");
         if (player2Save.delete()) System.out.println("player2GameTable.txt deleted");
 

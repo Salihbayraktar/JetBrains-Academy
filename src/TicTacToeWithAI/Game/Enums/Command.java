@@ -1,0 +1,22 @@
+package TicTacToeWithAI.Game.Enums;
+
+public enum Command {
+    EASY_VS_USER,
+    EASY_VS_EASY,
+    EASY_VS_MEDIUM,
+    EASY_VS_HARD,
+    MEDIUM_VS_USER,
+    MEDIUM_VS_EASY,
+    MEDIUM_VS_MEDIUM,
+    MEDIUM_VS_HARD,
+    HARD_VS_USER,
+    HARD_VS_EASY,
+    HARD_VS_MEDIUM,
+    HARD_VS_HARD,
+    USER_VS_USER,
+    USER_VS_EASY,
+    USER_VS_MEDIUM,
+    USER_VS_HARD,
+    EXIT,
+    BAD_PARAMETERS,
+}
