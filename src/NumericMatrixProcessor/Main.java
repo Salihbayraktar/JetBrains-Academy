@@ -14,17 +14,17 @@ public class Main {
         stringScanner = new Scanner(input);
         int m1 = stringScanner.nextInt();
         int n1 = stringScanner.nextInt();
-        double[][] firstMatrix = new double[m1][n1];
+        double[][] matrix = new double[m1][n1];
         System.out.println("Enter matrix:");
         for (int r = 0; r < m1; r++) {
             input = consoleScanner.nextLine();
             stringScanner = new Scanner(input);
             for (int c = 0; c < n1; c++) {
-                firstMatrix[r][c] = stringScanner.nextDouble();
+                matrix[r][c] = stringScanner.nextDouble();
             }
 
         }
-        return firstMatrix;
+        return matrix;
     }
 
     public static double[][] addition(double[][] firstMatrix, double[][] secondMatrix) {
