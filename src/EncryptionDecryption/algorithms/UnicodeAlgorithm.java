@@ -1,7 +1,7 @@
 package EncryptionDecryption.algorithms;
 
 
-public class UnicodeAlgorithm extends MainEncryption {
+public class UnicodeAlgorithm extends MainStrategy {
 
     public UnicodeAlgorithm(String[] args) {
         super(args);

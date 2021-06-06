@@ -1,14 +1,15 @@
 package EncryptionDecryption;
 
-import EncryptionDecryption.algorithms.AlgorithmStrategy;
-import EncryptionDecryption.algorithms.MainEncryption;
+
+import EncryptionDecryption.algorithms.AlgorithmContext;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        MainEncryption algorithm = AlgorithmStrategy.selectAlgorithm(args);
+        AlgorithmContext algorithmContext = new AlgorithmContext(args);
 
-        algorithm.encryption();
+        algorithmContext.encryption();
+
     }
 }

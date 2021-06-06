@@ -1,6 +1,6 @@
 package EncryptionDecryption.algorithms;
 
-public class ShiftAlgorithm extends MainEncryption {
+public class ShiftAlgorithm extends MainStrategy {
 
     public ShiftAlgorithm(String[] args) {
         super(args);

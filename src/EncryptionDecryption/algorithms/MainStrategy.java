@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public abstract class MainEncryption {
+public abstract class MainStrategy {
 
     protected String mode = "enc";
 
@@ -20,7 +20,7 @@ public abstract class MainEncryption {
 
     protected String result = "";
 
-    public MainEncryption(String[] args) {
+    public MainStrategy(String[] args) {
 
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
