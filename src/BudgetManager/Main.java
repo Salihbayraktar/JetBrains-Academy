@@ -132,15 +132,30 @@ public class Main {
             return;
         }
 
-        TreeMap<String, Double> sortedPurchases = new TreeMap<>();
-        sortedPurchases.putAll(foods);
-        sortedPurchases.putAll(clothes);
-        sortedPurchases.putAll(entertainment);
-        sortedPurchases.putAll(other);
+        TreeMap<String, Double> allPurchases = new TreeMap<>();
+        allPurchases.putAll(foods);
+        allPurchases.putAll(clothes);
+        allPurchases.putAll(entertainment);
+        allPurchases.putAll(other);
         System.out.println("All:");
-        sortedPurchases.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEach(i -> System.out.printf("%s $%.2f\n", i.getKey(), i.getValue()));
 
-        double totalPrice = sortedPurchases.values().stream().reduce(0.0, (c, e) -> c += e);
+        SortedSet<Map.Entry<String, Double>> sortedPurchases = new TreeSet<>(
+                (e1, e2) -> {
+                    if (Objects.equals(e1.getValue(), e2.getValue())) {
+                        return  -1 * e1.getKey().compareTo(e2.getKey());
+                    } else {
+                        return -1 * e1.getValue().compareTo(e2.getValue());
+                    }
+                });
+
+        sortedPurchases.addAll(allPurchases.entrySet());
+
+        sortedPurchases.forEach(i -> System.out.printf("%s $%.2f\n", i.getKey(), i.getValue()));
+
+        //sortedPurchases.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEach(i -> System.out.printf("%s $%.2f\n", i.getKey(), i.getValue()));
+
+
+        double totalPrice = allPurchases.values().stream().reduce(0.0, (c, e) -> c += e);
         System.out.printf("Total: $%.2f\n", totalPrice);
     }
 
